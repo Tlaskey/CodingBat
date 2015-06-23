@@ -156,7 +156,9 @@ public boolean noTriples(int[] nums) {
     int counter = 0;
     for(int i = 0; i < (nums.length - 2); i++)
     {
+        //Set a int variable first to index i.
         int first = nums[i];
+        //If index i equals index i + 1 and index i + 2, return false.
         if(nums[i + 1] == first && nums[i + 2] == first)
         {
             return false;
