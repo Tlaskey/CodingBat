@@ -166,3 +166,30 @@ public boolean noTriples(int[] nums) {
     }
     return true;
 }
+
+Given an array of ints, return true if it contains a 2, 7, 1 pattern -- a value, followed by the value plus 5, followed by the value minus 1. Additionally the 271 counts even if the "1" differs by 2 or less from the correct value. 
+
+has271({1, 2, 7, 1}) → true
+has271({1, 2, 8, 1}) → false
+has271({2, 7, 1}) → true
+
+//Second part of this problem gave me trouble. Making sure that the "1" differs by two or less was weird. The solution confused me at first, but now it makes sense. I need to get better at figuring this crap out. Didn't even occur to me to use Math.abs()
+
+//Solution:
+
+public boolean has271(int[] nums) {
+    boolean decide = false;
+    for(int i = 0; i < nums.length - 2; i++)
+    {
+        int first = nums[i];
+        if(nums[i + 1] == first + 5 && Math.abs(nums[i + 2] - (first - 1)) <= 2)
+        {
+            decide = true;
+        }
+        else
+        {
+            decide = false;
+        }
+    }
+    return decide;
+}
