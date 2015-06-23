@@ -4,6 +4,8 @@ doubleX("axxbb") → true
 doubleX("axaxax") → false
 doubleX("xxxxx") → true
 
+//This is wrong with everything but one test. 
+
 boolean doubleX(String str) { 
     boolean decide = false;
     int index = str.indexOf("x");
@@ -20,17 +22,42 @@ boolean doubleX(String str) {
     }
     return decide;
 }
-#This is wrong with everything but one test. Solution below.
 
-boolean doubleX(String str) {
-  int i = str.indexOf("x");
-  if (i == -1) return false; // no "x" at all
+//Solution below
 
-  // Is char at i+1 also an "x"?
-  if (i+1 >= str.length()) return false; // check i+1 in bounds?
-  return str.substring(i+1, i+2).equals("x");
-  
-  // Another approach -- .startsWith() simplifies the logic
-  // String x = str.substring(i);
-  // return x.startsWith("xx");
+boolean doubleX(String str) { 
+    boolean decide = false;
+    int index = str.indexOf("x");
+    if(index == -1)
+    {
+        decide = false;
+    }
+    
+    if(index + 1 >= str.length())
+    {
+        decide = false;
+    }
+    
+    else if(str.substring(index + 1, index + 2).equals("x"))
+    {
+        decide = true;
+    }
+    
+    return decide;
 }
+
+//Another solution with startsWith() method.
+boolean doubleX(String str) { 
+    boolean decide = false;
+    int index = str.indexOf("x");
+    if(str.startsWith("xx", index))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
