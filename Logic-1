@@ -38,15 +38,16 @@ public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
 //Much shorter version that does the exact same thing. Focuses on using just the variables and not == . Much better solution.
 
 public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
+    //If you are asleep, it's always false.
     if(isAsleep)
     {
         return false;
     }
-    
+    //If it is morning and it isn't your mom you never answer.
     if(isMorning && !isMom)
     {
         return false;
     }
-    
+    //For all other cases you do answer.
     return true;
 }
