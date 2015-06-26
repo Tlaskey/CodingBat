@@ -59,3 +59,31 @@ public boolean hasBad(String str) {
   // but it runs much slower, since it needlessly checks over the whole
   // string.
 }
+
+Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use '@' for the missing chars. 
+
+atFirst("hello") → "he"
+atFirst("hi") → "hi"
+atFirst("h") → "h@"
+
+//Totally forgot about switch statements. This helps a lot! Not my idea to use switch statements though which sucks, but I know
+to use them now.
+
+public String atFirst(String str) {
+    if(str.length() >= 2)
+    {
+        return str.substring(0,2);
+    }
+    else
+    {
+        switch(str.length())
+        {
+            case 0: return("@@");
+            case 1: return(str.substring(0,str.length()) + "@");
+            case 2: return(str.substring(0,str.length()));
+            default: return("");
+        }
+    }
+}
+
+
