@@ -24,3 +24,46 @@ public boolean hasOne(int n) {
     }
     return false;
 }
+
+
+Given an array of positive ints, return a new array of length "count" containing the first even numbers from the original array. The original array will contain at least "count" even numbers. 
+
+copyEvens({3, 2, 4, 5, 8}, 2) → {2, 4}
+copyEvens({3, 2, 4, 5, 8}, 3) → {2, 4, 8}
+copyEvens({6, 1, 2, 4, 5, 8}, 3) → {6, 2, 4}
+
+//My unfinished solution that doesn't work:
+
+public int[] copyEvens(int[] nums, int count) {
+    int[] newArray = new int[count];
+    for(int i = 0; i < count; i++)
+    {
+        if(nums[i] % 2 == 0)
+        {
+            newArray[i] = nums[i];
+        }
+    }
+    return newArray;
+}
+
+//Finished solution: Added a counter for the newArray. Increment counter by one everytime you find a new even value and 
+add it to the newArray. Once the counter = count, you stop iterating through nums and return newArray.
+
+public int[] copyEvens(int[] nums, int count) {
+    int counter = 0;
+    int[] newArray = new int[count];
+    for(int i = 0; i < nums.length; i++)
+    {
+        if(nums[i] % 2 == 0)
+        {
+            newArray[counter] = nums[i];
+            counter++;
+        }
+        if(counter == count)
+        {
+            return newArray;
+        }
+    }
+    return nums;
+}
+
