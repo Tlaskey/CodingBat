@@ -117,3 +117,46 @@ public String minCat(String a, String b) {
     
     return result;
 }
+
+Given a string, return a version without the first 2 chars. Except keep the first char if it is 'a' and keep the second char
+if it is 'b'. The string may be any length. Harder than it looks. 
+
+deFront("Hello") → "llo"
+deFront("java") → "va"
+deFront("away") → "aay"
+
+//My solution. Can probably fix it up to look better, but it works!
+
+public String deFront(String str) {    
+    String result = "";
+    
+    if(str.length() >= 2)
+    {
+        if(str.substring(0,1).equals("a"))
+        {
+            if(str.substring(1, 2).equals("b"))
+            {
+                result = str;
+            }
+            else
+            {
+                result = str.substring(0,1) + str.substring(2, str.length());
+            }
+        }
+        else if(str.substring(0, 1).equals("a"))
+        {
+            result = str.substring(0, 1) + str.substring(2, str.length());
+        }
+        else if(str.substring(1,2).equals("b"))
+        {
+            result = str.substring(1, 2) + str.substring(2, str.length());
+        }
+        
+        else
+        {
+            result = str.substring(2, str.length());
+        }
+    }
+    
+    return result;
+}
